@@ -56,7 +56,7 @@ function finderDirect($from, $to, $lines) {
       echo "Von " . stationName($from);
       echo "<br>";
       //Richtung berechnen
-      if ($from < $to) {
+      if (array_search($from, $partOfLine) < array_search($to, $partOfLine)) {
         $endPoint = array_values(array_slice($partOfLine, -1))[0];
       } else {
         $endPoint = current($partOfLine);
