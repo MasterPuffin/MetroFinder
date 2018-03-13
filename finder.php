@@ -31,12 +31,10 @@ linie4 {
 </style>
 <script>
   document.getElementById("results").style.display = "none";
+  document.getElementById("search").style.display = "none";
   function newSearch() {
     document.getElementById("search").style.display = "block";
     document.getElementById("results").style.display = "none";
-  }
-  function hide() {
-  document.getElementById("search").style.display = "none";
   }
 </script>
 <body>
@@ -72,7 +70,7 @@ linie4 {
 
     <br>
     <br>
-    <input type="submit" value="Suchen" onClick="hide()">
+    <input type="submit" value="Suchen">
   </form>
 </div>
 <?php
@@ -171,6 +169,12 @@ if (isset($_POST["from"]) && isset($_POST["to"])) {
   <br>
  <button onclick="newSearch()">Neue Suche</button>
   <?php
-}
+} else {
  ?>
+ <script>
+   document.getElementById("search").style.display = "block";
+ </script>
+ <?php
+}
+  ?>
 </div>
