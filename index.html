@@ -1,27 +1,37 @@
 <form action="finder.php" method="post">
-  <select name="from">
+  <select name="from" id="selectFrom">
     <option value="1">Kiewskaja</option>
-    <option value="2">Prospekt Mira (Fracht)</option>
-    <option value="3">Prospekt Mira</option>
-    <option value="4">WDNCh</option>
-    <option value="5">Tolstaya Veshch'</option>
-    <option value="6">Park Podeby</option>
-    <option value="8">Rimskaja</option>
     <option value="9">Marjino</option>
+    <option value="6">Park Podeby</option>
+    <option value="3">Prospekt Mira</option>
+    <option value="2">Prospekt Mira (Fracht)</option>
     <option value="10">Reykjavik</option>
+    <option value="8">Rimskaja</option>
+    <option value="5">Tolstaya Veshch'</option>
+    <option value="4">WDNCh</option>
   </select>
 
-  <select name="to">
+  <select name="to" id="selectTo">
     <option value="1">Kiewskaja</option>
-    <option value="2">Prospekt Mira (Fracht)</option>
-    <option value="3">Prospekt Mira</option>
-    <option value="4">WDNCh</option>
-    <option value="5">Tolstaya Veshch'</option>
-    <option value="6">Park Podeby</option>
-    <option value="8">Rimskaja</option>
     <option value="9">Marjino</option>
+    <option value="6">Park Podeby</option>
+    <option value="3">Prospekt Mira</option>
+    <option value="2">Prospekt Mira (Fracht)</option>
     <option value="10">Reykjavik</option>
+    <option value="8">Rimskaja</option>
+    <option value="5">Tolstaya Veshch'</option>
+    <option value="4">WDNCh</option>
   </select>
 
   <input type="submit" value="Submit">
 </form>
+<input type="button" value="&#128472;" onclick="swap()" />
+<script>
+  function swap()
+  {
+      var selectionTo = document.getElementById("selectTo").options[document.getElementById("selectTo").selectedIndex].value;
+      var selectionFrom = document.getElementById("selectFrom").options[document.getElementById("selectFrom").selectedIndex].value;
+      document.getElementById('selectFrom').value = selectionTo;
+      document.getElementById('selectTo').value = selectionFrom;
+  }
+</script>
