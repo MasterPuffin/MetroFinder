@@ -29,12 +29,53 @@ linie4 {
   padding-right: 4px;
 }
 </style>
-<?php
-$from = $_POST["from"];
-$to = $_POST["to"];
-//echo $from;
-//echo $to;
+<script>
+  document.getElementById("results").style.display = "none";
+  function newSearch() {
+    document.getElementById("search").style.display = "block";
+    document.getElementById("results").style.display = "none";
+  }
+  function hide() {
+  document.getElementById("search").style.display = "none";
+  }
+</script>
+<body>
+  <div id="search">
+  <h2>Liniensuche</h2>
+  Von
+  <form action="finder.php" method="post" id="searchForm">
+    <select name="from" id="selectFrom">
+      <option value="1">Kiewskaja</option>
+      <option value="9">Marjino</option>
+      <option value="6">Park Podeby</option>
+      <option value="3">Prospekt Mira</option>
+      <option value="2">Prospekt Mira (Fracht)</option>
+      <option value="10">Reykjavik</option>
+      <option value="8">Rimskaja</option>
+      <option value="5">Tolstaya Veshch'</option>
+      <option value="4">WDNCh</option>
+    </select>
+  <br>
+  <br>
+  Nach<br>
+    <select name="to" id="selectTo">
+      <option value="1">Kiewskaja</option>
+      <option value="9">Marjino</option>
+      <option value="6">Park Podeby</option>
+      <option value="3">Prospekt Mira</option>
+      <option value="2">Prospekt Mira (Fracht)</option>
+      <option value="10">Reykjavik</option>
+      <option value="8">Rimskaja</option>
+      <option value="5">Tolstaya Veshch'</option>
+      <option value="4">WDNCh</option>
+    </select>
 
+    <br>
+    <br>
+    <input type="submit" value="Suchen" onClick="hide()">
+  </form>
+</div>
+<?php
 function stationName ($no) {
   $stations = array(
       1 => "Kiewskaja",
@@ -68,7 +109,7 @@ function finder($from, $to, $lines) {
       if (in_array($from, $partOfLine) && in_array($to, $partOfLine)) {
         finderDirect($from,$to,$lines);
         $sameLine = true;
-        exit;
+        break;
       } else {
         $sameLine = false;
       }
@@ -113,6 +154,23 @@ function finderDirect($from, $to, $lines) {
 }
 
 //Berechne Route
-finder($from,$to,$lines);
+?>
+<div id="results">
+<?php
+if (isset($_POST["from"]) && isset($_POST["to"])) {
+  ?>
+  <script>
+    document.getElementById("search").style.display = "none";
+  </script>
 
+  <?php
+  $from = $_POST["from"];
+  $to = $_POST["to"];
+  finder($from,$to,$lines);
+  ?>
+  <br>
+ <button onclick="newSearch()">Neue Suche</button>
+  <?php
+}
  ?>
+</div>
