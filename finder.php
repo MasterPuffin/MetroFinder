@@ -1,7 +1,37 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://www.endorwind.de/wp-content/uploads/2017/08/icon1.png" sizes="192x192" />
+  <title>endorwind Minecraft Server</title>
+</head>
+<style>
+linie1 {
+  color: #fff;
+  background-color: #FF8000;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+linie2 {
+  color: #fff;
+  background-color: #97CB16;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+linie3 {
+  color: #fff;
+  background-color: #007FFF;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+linie4 {
+  color: #fff;
+  background-color: #7F00FF;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+</style>
 <?php
 $from = $_POST["from"];
 $to = $_POST["to"];
-
 //echo $from;
 //echo $to;
 
@@ -32,6 +62,8 @@ $lines = array
 //Prüfe ob Stationen auf einer Linie
 function finder($from, $to, $lines) {
   if ($from != $to) {
+    echo "Von <b>" . stationName($from) . "</b> nach <b>" . stationName($to) . "</b>";
+    echo "<br><hr><br>";
     foreach($lines AS $line => $partOfLine) {
       if (in_array($from, $partOfLine) && in_array($to, $partOfLine)) {
         finderDirect($from,$to,$lines);
@@ -43,6 +75,7 @@ function finder($from, $to, $lines) {
     }
     if (!$sameLine) {
       finderDirect($from,1,$lines);
+      echo "<br>";
       finderDirect(1,$to,$lines);
     }
   } else {
@@ -53,7 +86,7 @@ function finder($from, $to, $lines) {
 function finderDirect($from, $to, $lines) {
   foreach($lines AS $line => $partOfLine) {
     if (in_array($from, $partOfLine) && in_array($to, $partOfLine)) {
-      echo "Von " . stationName($from);
+      echo "Ab <b>" . stationName($from) . "</b>";
       echo "<br>";
       //Richtung berechnen
       if (array_search($from, $partOfLine) < array_search($to, $partOfLine)) {
@@ -61,9 +94,17 @@ function finderDirect($from, $to, $lines) {
       } else {
         $endPoint = current($partOfLine);
       }
-      echo "Via " . $line . " Richtung " . stationName($endPoint);
+      if ($line == "Linie 1") {
+        echo '<linie1>Linie 1</linie1> Richtung <i>' . stationName($endPoint) . '</i>';
+      } elseif ($line == "Linie 2") {
+        echo '<linie2>Linie 2</linie2> Richtung <i>' . stationName($endPoint) . '</i>';
+      } elseif ($line == "Linie 3") {
+        echo '<linie3>Linie 3</linie3> Richtung <i>' . stationName($endPoint) . '</i>';
+      } elseif ($line == "Linie 4") {
+        echo '<linie4>Linie 4</linie4> Richtung <i>' . stationName($endPoint) . '</i>';
+      }
       echo "<br>";
-      echo "Nach " . stationName($to);
+      echo "An <b>" . stationName($to) . "</b>";
       echo "<br>";
       break;
     } else {
