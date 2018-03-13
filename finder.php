@@ -31,21 +31,23 @@ $lines = array
 
 //Prüfe ob Stationen auf einer Linie
 function finder($from, $to, $lines) {
-  foreach($lines AS $line => $partOfLine) {
-    if (in_array($from, $partOfLine) && in_array($to, $partOfLine)) {
-      finderDirect($from,$to,$lines);
-      $sameLine = true;
-      break;
-      exit;
-    } else {
-      $sameLine = false;
+  if ($from != $to) {
+    foreach($lines AS $line => $partOfLine) {
+      if (in_array($from, $partOfLine) && in_array($to, $partOfLine)) {
+        finderDirect($from,$to,$lines);
+        $sameLine = true;
+        exit;
+      } else {
+        $sameLine = false;
+      }
     }
-    //return;
+    if (!$sameLine) {
+      finderDirect($from,1,$lines);
+      finderDirect(1,$to,$lines);
+    }
+  } else {
+    echo "Start und Ziel sind identisch!";
   }
-  if (!$sameLine) {
-  finderDirect($from,1,$lines);
-  finderDirect(1,$to,$lines);
-}
 }
 
 function finderDirect($from, $to, $lines) {
@@ -53,7 +55,13 @@ function finderDirect($from, $to, $lines) {
     if (in_array($from, $partOfLine) && in_array($to, $partOfLine)) {
       echo "Von " . stationName($from);
       echo "<br>";
-      echo "Via " . $line;
+      //Richtung berechnen
+      if ($from < $to) {
+        $endPoint = array_values(array_slice($partOfLine, -1))[0];
+      } else {
+        $endPoint = current($partOfLine);
+      }
+      echo "Via " . $line . " Richtung " . stationName($endPoint);
       echo "<br>";
       echo "Nach " . stationName($to);
       echo "<br>";
