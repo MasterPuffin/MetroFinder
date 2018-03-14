@@ -42,8 +42,10 @@ linie4 {
   Von
   <form action="finder.php" method="post" id="searchForm">
     <select name="from" id="selectFrom">
+      <option value="11">Botanitscheski sad</option>
       <option value="1">Kiewskaja</option>
       <option value="9">Marjino</option>
+      <option value="12">Medwedkowo</option>
       <option value="6">Park Podeby</option>
       <option value="3">Prospekt Mira</option>
       <option value="2">Prospekt Mira (Fracht)</option>
@@ -56,8 +58,10 @@ linie4 {
   <br>
   Nach<br>
     <select name="to" id="selectTo">
+      <option value="11">Botanitscheski sad</option>
       <option value="1">Kiewskaja</option>
       <option value="9">Marjino</option>
+      <option value="12">Medwedkowo</option>
       <option value="6">Park Podeby</option>
       <option value="3">Prospekt Mira</option>
       <option value="2">Prospekt Mira (Fracht)</option>
@@ -85,6 +89,8 @@ function stationName ($no) {
       8 => "Rimskaja",
       9 => "Marjino",
       10 => "Reykjavik",
+      11 => "Botanitscheski sad",
+      12 => "Medwedkowo",
   );
   return $stations[$no];
 }
@@ -93,7 +99,7 @@ $lines = array
   (
     "Linie 1" => array(1,2,3),
     "Linie 2" => array(1,6,7,8,9,10),
-    "Linie 3" => array(1,4),
+    "Linie 3" => array(1,4,11,12),
     "Linie 4" => array(1,5)
   );
 
