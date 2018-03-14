@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style_finder.css">
   <link rel="icon" href="https://www.endorwind.de/wp-content/uploads/2017/08/icon1.png" sizes="192x192" />
   <title>endorwind Minecraft Server</title>
 </head>
@@ -39,7 +39,6 @@ linie4 {
 </script>
 <body>
   <div id="search">
-  <h2>Liniensuche</h2>
   Von
   <form action="finder.php" method="post" id="searchForm">
     <select name="from" id="selectFrom">
