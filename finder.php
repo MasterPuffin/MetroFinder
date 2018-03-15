@@ -78,12 +78,10 @@ linie4 {
 function stationName ($no) {
   $stations = array(
       1 => "Kiewskaja",
-      2 => "Prospekt Mira (Fracht)",
       3 => "Prospekt Mira",
       4 => "WDNCh",
       5 => "Tolstaya Veshch'",
       6 => "Park Podeby",
-      7 => "Park Podeby Kreuzung",
       8 => "Rimskaja",
       9 => "Marjino",
       10 => "Reykjavik",
@@ -104,8 +102,46 @@ $lines = array
 function plattform($station,$direction) {
   $plattforms = array
     (
+      //Format: Richtung => Gleis
+      //Kiewskaja
       1 => array(
         5 => 1, 12 => 2, 3 => 3, 10 => 4
+      )
+      //Prospekt Mira
+      3 => array(
+        1 => 1, 1 => 2
+      )
+      //WDNCh
+      4 => array(
+        1 => 1, 12 => 2
+      )
+      //Tolstaya Veshch'
+      5 => array(
+        1 => 1, 1 => 2
+      )
+      //Park Podeby
+      6 => array(
+        10 => 1, 1 => 2
+      )
+      //Rimskaja
+      8 => array(
+        10 => 1, 1 => 1
+      )
+      //Marjino
+      9 => array(
+        10 => 2, 1 => 1, 1 => 2
+      )
+      //Reykjavik
+      10 => array(
+        1 => 1, 1 => 2
+      )
+      //Botanitscheski sad
+      11 => array(
+        1 => 2, 12 => 1
+      )
+      //Medwedkowo
+      12 => array(
+        1 => 1, 1 => 2
       )
     );
   return $plattforms[$station][$direction];
