@@ -101,6 +101,18 @@ $lines = array
     "Linie 4" => array(1,5)
   );
 
+function plattform($station,$direction) {
+  $plattforms = array
+    (
+      1 => array(
+        5 => 1, 12 => 2, 3 => 3, 10 => 4
+      )
+    );
+  return $plattforms[$station][$direction];
+}
+
+echo "Abfahrt von Gleis " . plattform(1,5);
+
 //Prüfe ob Stationen auf einer Linie
 function finder($from, $to, $lines) {
   if ($from != $to) {
