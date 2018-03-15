@@ -106,39 +106,39 @@ function plattform($station,$direction) {
       //Kiewskaja
       1 => array(
         5 => 1, 12 => 2, 3 => 3, 10 => 4
-      )
+      ),
       //Prospekt Mira
       3 => array(
         1 => 1, 1 => 2
-      )
+      ),
       //WDNCh
       4 => array(
         1 => 1, 12 => 2
-      )
+      ),
       //Tolstaya Veshch'
       5 => array(
         1 => 1, 1 => 2
-      )
+      ),
       //Park Podeby
       6 => array(
         10 => 1, 1 => 2
-      )
+      ),
       //Rimskaja
       8 => array(
         10 => 1, 1 => 1
-      )
+      ),
       //Marjino
       9 => array(
         10 => 2, 1 => 1, 1 => 2
-      )
+      ),
       //Reykjavik
       10 => array(
         1 => 1, 1 => 2
-      )
+      ),
       //Botanitscheski sad
       11 => array(
         1 => 2, 12 => 1
-      )
+      ),
       //Medwedkowo
       12 => array(
         1 => 1, 1 => 2
@@ -146,8 +146,6 @@ function plattform($station,$direction) {
     );
   return $plattforms[$station][$direction];
 }
-
-echo "Abfahrt von Gleis " . plattform(1,5);
 
 //Prüfe ob Stationen auf einer Linie
 function finder($from, $to, $lines) {
@@ -193,6 +191,8 @@ function finderDirect($from, $to, $lines) {
       } elseif ($line == "Linie 4") {
         echo '<linie4>Linie 4</linie4> Richtung <i>' . stationName($endPoint) . '</i>';
       }
+      echo "<br>";
+      echo "Abfahrt von Gleis " . plattform($from,$endPoint);
       echo "<br>";
       echo "An <b>" . stationName($to) . "</b>";
       echo "<br>";
