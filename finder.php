@@ -48,7 +48,6 @@ linie4 {
       <option value="12">Medwedkowo</option>
       <option value="6">Park Podeby</option>
       <option value="3">Prospekt Mira</option>
-      <option value="2">Prospekt Mira (Fracht)</option>
       <option value="10">Reykjavik</option>
       <option value="8">Rimskaja</option>
       <option value="5">Tolstaya Veshch'</option>
@@ -64,7 +63,6 @@ linie4 {
       <option value="12">Medwedkowo</option>
       <option value="6">Park Podeby</option>
       <option value="3">Prospekt Mira</option>
-      <option value="2">Prospekt Mira (Fracht)</option>
       <option value="10">Reykjavik</option>
       <option value="8">Rimskaja</option>
       <option value="5">Tolstaya Veshch'</option>
