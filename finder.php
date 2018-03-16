@@ -93,7 +93,7 @@ function stationName ($no) {
 
 $lines = array
   (
-    "Linie 1" => array(1,2,3),
+    "Linie 1" => array(1,3),
     "Linie 2" => array(1,6,7,8,9,10),
     "Linie 3" => array(1,4,11,12),
     "Linie 4" => array(1,5)
@@ -193,6 +193,13 @@ function finderDirect($from, $to, $lines) {
       }
       echo "<br>";
       echo "Abfahrt von Gleis " . plattform($from,$endPoint);
+      echo "<br>";
+      $noStations = abs(array_search($from, $lines[$line]) - array_search($to, $lines[$line]));
+      if ($noStations == 1) {
+        echo $noStations . " Station";
+      } else {
+        echo $noStations . " Stationen";
+      }
       echo "<br>";
       echo "An <b>" . stationName($to) . "</b>";
       echo "<br>";
