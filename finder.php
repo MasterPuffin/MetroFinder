@@ -94,7 +94,7 @@ function stationName ($no) {
 $lines = array
   (
     1 => array(1,3),
-    2 => array(1,6,7,8,9,10),
+    2 => array(1,6,8,9,10),
     3 => array(1,4,11,12),
     4 => array(1,5)
   );
