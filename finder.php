@@ -182,6 +182,7 @@ function finderDirect($from, $to, $lines) {
       } else {
         $endPoint = current($partOfLine);
       }
+      echo '<span style="padding-left:20px">';
       if ($line == 1) {
         echo '<linie1>Linie 1</linie1> Richtung <i>' . stationName($endPoint) . '</i>';
       } elseif ($line == 2) {
@@ -191,15 +192,20 @@ function finderDirect($from, $to, $lines) {
       } elseif ($line == 4) {
         echo '<linie4>Linie 4</linie4> Richtung <i>' . stationName($endPoint) . '</i>';
       }
+      echo '</span>';
       echo "<br>";
+      echo '<span style="padding-left:20px">';
       echo "Abfahrt von Gleis " . plattform($from,$endPoint);
+      echo '</span>';
       echo "<br>";
       $noStations = abs(array_search($from, $lines[$line]) - array_search($to, $lines[$line]));
+      echo '<span style="padding-left:20px">';
       if ($noStations == 1) {
         echo $noStations . " Station";
       } else {
         echo $noStations . " Stationen";
       }
+      echo '</span>';
       echo "<br>";
       echo "An <b>" . stationName($to) . "</b>";
       echo "<br>";
