@@ -93,10 +93,10 @@ function stationName ($no) {
 
 $lines = array
   (
-    "Linie 1" => array(1,3),
-    "Linie 2" => array(1,6,7,8,9,10),
-    "Linie 3" => array(1,4,11,12),
-    "Linie 4" => array(1,5)
+    1 => array(1,3),
+    2 => array(1,6,7,8,9,10),
+    3 => array(1,4,11,12),
+    4 => array(1,5)
   );
 
 function plattform($station,$direction) {
@@ -182,13 +182,13 @@ function finderDirect($from, $to, $lines) {
       } else {
         $endPoint = current($partOfLine);
       }
-      if ($line == "Linie 1") {
+      if ($line == 1) {
         echo '<linie1>Linie 1</linie1> Richtung <i>' . stationName($endPoint) . '</i>';
-      } elseif ($line == "Linie 2") {
+      } elseif ($line == 2) {
         echo '<linie2>Linie 2</linie2> Richtung <i>' . stationName($endPoint) . '</i>';
-      } elseif ($line == "Linie 3") {
+      } elseif ($line == 3) {
         echo '<linie3>Linie 3</linie3> Richtung <i>' . stationName($endPoint) . '</i>';
-      } elseif ($line == "Linie 4") {
+      } elseif ($line == 4) {
         echo '<linie4>Linie 4</linie4> Richtung <i>' . stationName($endPoint) . '</i>';
       }
       echo "<br>";
